@@ -1,11 +1,16 @@
-FROM node:18-alpine
+# FROM node:18-alpine
 
-WORKDIR /app
+# WORKDIR /app
 
-COPY . .
+# COPY . .
 
-RUN npm install 
+# RUN npm install 
 
-EXPOSE 5501 
+# EXPOSE 5501 
 
-CMD ["node", "index.js"]
+# CMD ["node", "index.js"]
+
+FROM geerlingguy/php-apache:latest
+
+RUN rm /var/www/html/index.html
+# COPY index.php /var/www/html/index.php
