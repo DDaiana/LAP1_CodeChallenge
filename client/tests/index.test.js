@@ -1,23 +1,16 @@
-// const renderDOM = require('./helpers');
-// let dom;
-// let document;
-
 /** @jest-environment jsdom */
 
- const fs = require('fs');
- const path = require('path');
- const html = fs.readFileSync(path.resolve(__dirname, '../index.html'), 'utf8');
- 
+const renderDOM = require('./helpers');
+let dom;
+let document;
+
  
  describe('index.html', () => {
-     beforeEach(() => {
-         document.documentElement.innerHTML = html.toString();
-     })
- 
-    // beforeEach( async () => {
-    //     dom = await renderDOM('index.html');
-    //     document = await dom.window.document
-    //     })
+  
+    beforeEach( async () => {
+        dom = await renderDOM('index.html');
+        document = await dom.window.document
+        })
 
      test('it has a title', () => {
         let header = document.querySelector('title');
